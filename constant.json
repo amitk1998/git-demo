@@ -1,0 +1,13 @@
+{
+    "development":{
+        "sponsor_bank_ifsc_code":"HDFC0000060",
+        "7000":"HDFC00065000003219",
+        "9000":"HDFC00064000003218"
+        
+    },
+    "production":{
+        "sponsor_bank_ifsc_code":"HDFC0000060",
+        "7000":"HDFC00065000003219",
+        "9000":"HDFC00064000003218"
+    }
+}

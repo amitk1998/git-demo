@@ -1,0 +1,178 @@
+const Sequelize = require('sequelize');
+
+module.exports = function (connection, DataType) {
+	let manualMandate = connection.define(
+		'manualMandate',
+		{
+			id: {
+				type: Sequelize.INTEGER,
+				primaryKey: true,
+				autoIncrement: true,
+			},
+			batch_id: Sequelize.STRING,
+			reversal_batch_id: Sequelize.STRING,
+			merge_batch_id: Sequelize.STRING,
+			merge_flag: {
+				type: Sequelize.BOOLEAN,
+				defaultValue: false,
+			},
+			demerge_flag: {
+				type: Sequelize.BOOLEAN,
+				defaultValue: false,
+			},
+			reversal_current_date: Sequelize.DATE,
+			type: Sequelize.STRING,
+			case_type: Sequelize.STRING,
+			case_status: Sequelize.STRING,
+			f1_reversal_sftp_status: {
+				type: Sequelize.BOOLEAN,
+				defaultValue: false,
+			},
+			source_system: { type: Sequelize.STRING(50) },
+			emi_amount: { type: Sequelize.INTEGER },
+			mandate_type: { type: Sequelize.STRING(50) },
+			bank_code: { type: Sequelize.STRING(50) },
+			company_code: { type: Sequelize.STRING(50) },
+			loan_no: { type: Sequelize.STRING(50) },
+			account_number: { type: Sequelize.STRING(50) },
+			customer_name: Sequelize.STRING,
+			registration_date: Sequelize.DATEONLY,
+			mandate_date: Sequelize.DATE,
+			mandate_start_date: Sequelize.DATE,
+			unti_cancelled: Sequelize.STRING,
+			mandate_end_date: Sequelize.DATE,
+			mandate_maximum_amount: Sequelize.STRING,
+			umrn_no: Sequelize.STRING,
+			account_holder_name: Sequelize.STRING,
+			utility_code: Sequelize.STRING,
+			account_type: Sequelize.STRING,
+			product_type: Sequelize.STRING,
+			sub_product_type: Sequelize.STRING,
+			system_code: Sequelize.STRING,
+			frequency_code: Sequelize.STRING,
+			customer_additional_information: Sequelize.STRING,
+			micr_code: Sequelize.STRING,
+			ifsc_code: Sequelize.STRING,
+			bank_name: Sequelize.STRING,
+			branch_code: Sequelize.STRING,
+			sponsor_bank_code: Sequelize.STRING,
+			city: Sequelize.STRING,
+			contribution: Sequelize.STRING,
+			cycle_date: Sequelize.STRING,
+			category_code: Sequelize.STRING,
+			mobile_number: Sequelize.STRING,
+			std_code: Sequelize.STRING,
+			boardline_no: Sequelize.STRING,
+			office_email: Sequelize.STRING,
+			personal_email: Sequelize.STRING,
+			action: Sequelize.STRING,
+			amount: Sequelize.STRING,
+			source_system_unique_number: Sequelize.STRING,
+			rejection_code: Sequelize.STRING,
+			remark: Sequelize.STRING,
+			web_top: Sequelize.STRING,
+			los_id: Sequelize.STRING,
+			presentment_mode: Sequelize.STRING,
+			cust_ref_no: Sequelize.STRING,
+			success: Sequelize.STRING,
+			fail: Sequelize.STRING,
+			response_status: Sequelize.STRING,
+			response_rejection_reason: Sequelize.STRING,
+			response_remarks: Sequelize.STRING,
+			tpsl_data_uploaded_date: Sequelize.DATE,
+			tpsl_data_approve_on: Sequelize.DATE,
+			tpsl_pay_id: Sequelize.STRING,
+			tpls_npci_acknowledgment_date: Sequelize.DATE,
+			tpsl_npci_resp_date: Sequelize.DATE,
+			tpsl_presment_mode: Sequelize.STRING,
+			tpsl_res_batch_id: Sequelize.STRING,
+			tpsl_process_uniq_no: Sequelize.STRING,
+			tpsl_reg_type: Sequelize.STRING,
+			tpsl_reLodge_date: Sequelize.STRING,
+			tpsl_old_umrn_no: Sequelize.STRING,
+			tpsl_reLodge_done_for_rejection_res: Sequelize.STRING,
+			tpsl_Registred_by: Sequelize.STRING,
+			status: Sequelize.STRING,
+			upload_status: Sequelize.STRING,
+			upload_rejection_reason: Sequelize.STRING,
+			upload_reject_reason: Sequelize.STRING,
+			re_registration_flag: Sequelize.BOOLEAN,
+			merchantRequestNo: Sequelize.STRING,
+			mandate_request_id: { type: Sequelize.STRING(40), unique: true },
+			mandate_creation_date_time: { type: Sequelize.STRING(20) },
+			enach_mandate_id: Sequelize.TEXT('long'), //digio PK
+			consumer_id: { type: Sequelize.STRING(25) },
+
+			mail_status: Sequelize.STRING(30),
+			mail_status_timestamp: Sequelize.DATE,
+
+			mandate_status: Sequelize.STRING(30), //renamed mandate_status
+			mandate_status_timestamp: Sequelize.DATE,
+
+			transfer_status: Sequelize.STRING(20),
+			transfer_fail_reason: Sequelize.STRING(80),
+			transfer_status_timestamp: Sequelize.DATE,
+
+			sponsor_bank_status: Sequelize.STRING(20),
+			sponsor_bank_reject_reason: Sequelize.STRING(80),
+			sponsor_bank_status_timestamp: Sequelize.DATE,
+
+			destination_bank_status: Sequelize.STRING(20),
+			destination_bank_reject_reason: Sequelize.STRING(80),
+			destination_bank_status_timestamp: Sequelize.DATE,
+			user_id: Sequelize.STRING(40),
+			image_name: Sequelize.STRING,
+			document_type: {
+				type: Sequelize.BOOLEAN,
+				defaultValue: false
+			},
+			tcs_bank_res_status: Sequelize.STRING(100),
+			reg_reversal_de1_de2_open_mandate: {
+				type: Sequelize.BOOLEAN,
+				defaultValue: false
+			},
+			tcs_report_rejection_code: Sequelize.STRING(100),
+			crop_img_seq_no: Sequelize.STRING(100),
+			enach_reversal_status: Sequelize.STRING(100),
+			enach_rejection_code: Sequelize.STRING(100),
+			enach_rejected_reason: Sequelize.STRING(100),
+			enach_f1_rejection_code: Sequelize.STRING(100),
+			emandate_expected_data_response: Sequelize.STRING,
+			emandate_data_response_url: Sequelize.STRING,
+			merge_date_time: Sequelize.DATE,
+			demerge_date_time: Sequelize.DATE,
+			demerge_filename: Sequelize.STRING,
+			auth_mode: Sequelize.STRING,
+			web_flag: Sequelize.STRING,
+			sftp_push_flag: {
+				type: Sequelize.BOOLEAN,
+				defaultValue: false
+			},
+			scan_reg_cron_id: Sequelize.STRING(45),
+			sfdc_cron_id: Sequelize.INTEGER,
+			enach_fileName: Sequelize.STRING,
+			reversal_status: Sequelize.STRING,
+			reversal_rejected_response: Sequelize.STRING,
+			nu_unique_id : Sequelize.STRING,
+			vendor_type: Sequelize.STRING,
+			nupay_unique_url : Sequelize.STRING,
+			enach_bulk_filename:Sequelize.STRING,
+			feedback_status : Sequelize.BOOLEAN,
+			customer_transaction_flag : Sequelize.BOOLEAN
+
+
+			// de1_de2_id:Sequelize.INTEGER,
+			// reg_reversal_de1_de2_open_mandate:{
+			// 	type:Sequelize.BOOLEAN,
+			// 	defaultValue:false
+			// }
+		},
+		{
+			indexes: [{ fields: ['bank_code', 'loan_no', 'mandate_type', 'account_number'] }],
+			charset: 'utf8', collate: 'utf8_unicode_ci',
+			freezeTableName: true,
+			tableName: 'manualMandate'
+		});
+
+	return manualMandate;
+};
